@@ -1,0 +1,34 @@
+pipeline{
+
+  agent any
+  tools {maven "mavenV3"}
+
+  stages{
+
+    stage("checkout"){
+
+      steps{
+
+        git branch: "main" , url: "https://github.com/chetna23-hub/SpringRESTful.git"
+       }
+     }
+
+      stage("build"){
+
+
+         steps{
+
+            sh "mvn compile"
+
+               }
+            }
+
+      stage("test"){
+
+           sh "mvn test"
+
+            }
+          }
+
+   }
+   }
